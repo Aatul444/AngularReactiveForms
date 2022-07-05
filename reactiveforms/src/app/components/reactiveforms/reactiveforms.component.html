@@ -1,1 +1,21 @@
 <h1>{{title}}</h1>
+<div class="container">
+    <div class="item-0">
+        <form [formGroup]="loginForm" (ngSubmit)="loginUser()">
+            <input type="text" formControlName="user" required>
+            <span *ngIf="!user">Enter your User Id</span>
+            <span *ngIf="user?.valid">Field is Invalid</span>
+            <br><br>
+            <input type="password" formControlName="password">
+            <br>
+            <span *ngIf="!password">password invalid</span>
+            <br>
+            <button>Login</button>
+        </form>
+    </div>
+    <div class="item-1">
+        <span *ngFor="let users of fetchedUsers; index as i">
+{{users.user}}
+        </span>
+    </div>
+</div>
